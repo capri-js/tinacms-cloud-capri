@@ -1,14 +1,13 @@
-import React from "react";
-import Head from "next/head";
 import { Header } from "./header";
 import { Footer } from "./footer";
-import layoutData from "../../content/global/index.json";
+import layoutData from "../../../content/global/index.json";
 import { Theme } from "./theme";
+import { Helmet } from "react-helmet-async";
 
 export const Layout = ({ rawData = {}, data = layoutData, children }) => {
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Tina</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         {data.theme.font === "nunito" && (
@@ -31,7 +30,7 @@ export const Layout = ({ rawData = {}, data = layoutData, children }) => {
             />
           </>
         )}
-      </Head>
+      </Helmet>
       <Theme data={data?.theme}>
         <div
           className={`min-h-screen flex flex-col ${

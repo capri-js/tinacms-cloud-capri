@@ -1,7 +1,6 @@
-import React from "react";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { TinaMarkdown } from "../../tina";
 import type { TinaTemplate } from "tinacms";
 
 export const Content = ({ data, parentField = "" }) => {

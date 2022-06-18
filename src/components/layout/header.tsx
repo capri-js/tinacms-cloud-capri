@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { Container } from "../util/container";
 import { useTheme } from ".";
 import { Icon } from "../util/icon";
+import { useEffect, useState } from "react";
 
 export const Header = ({ data }) => {
   const theme = useTheme();
@@ -39,16 +39,16 @@ export const Header = ({ data }) => {
   };
 
   // If we're on an admin path, other links should also link to their admin paths
-  const [prefix, setPrefix] = React.useState("");
-  const [windowUrl, setUrl] = React.useState("");
+  const [prefix, setPrefix] = useState("");
+  const [windowUrl, setUrl] = useState("");
   const isBrowser = typeof window !== "undefined";
   const hasUrl = isBrowser ? window.location.href : "";
 
-  React.useEffect(() => {
+  useEffect(() => {
     setUrl(hasUrl);
   }, [hasUrl]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (window.location.pathname.startsWith("/admin")) {
       setPrefix("/admin");
     }
@@ -59,19 +59,17 @@ export const Header = ({ data }) => {
       <Container size="custom" className="py-0 relative z-10 max-w-8xl">
         <div className="flex items-center justify-between">
           <h4 className="select-none text-lg font-bold tracking-tight my-4 transition duration-150 ease-out transform">
-            <Link href="/" passHref>
-              <a className="flex items-center">
-                <Icon
-                  parentColor={data.color}
-                  data={{
-                    name: data.icon.name,
-                    color: data.icon.color,
-                    style: data.icon.style,
-                  }}
-                  className="inline-block h-auto w-10 mr-1"
-                />{" "}
-                Tina Starter
-              </a>
+            <Link to="/" className="flex items-center">
+              <Icon
+                parentColor={data.color}
+                data={{
+                  name: data.icon.name,
+                  color: data.icon.color,
+                  style: data.icon.style,
+                }}
+                className="inline-block h-auto w-10 mr-1"
+              />{" "}
+              Tina Starter
             </Link>
           </h4>
           <ul className="flex gap-6 sm:gap-8 lg:gap-10">
@@ -87,10 +85,11 @@ export const Header = ({ data }) => {
                     key={`${item.label}-${i}`}
                     className={activeItem ? activeItemClasses[theme.color] : ""}
                   >
-                    <Link href={`${prefix}/${item.href}`} passHref>
-                      <a className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8">
-                        {item.label}
-                      </a>
+                    <Link
+                      to={`${prefix}/${item.href}`}
+                      className="select-none	text-base inline-block tracking-wide font-regular transition duration-150 ease-out opacity-70 hover:opacity-100 py-8"
+                    >
+                      {item.label}
                     </Link>
                   </li>
                 );

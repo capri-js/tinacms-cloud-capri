@@ -1,6 +1,5 @@
-import Link from "next/link";
-import * as React from "react";
-import { BiRightArrowAlt } from "react-icons/bi";
+import { Link } from "react-router-dom";
+import { BiRightArrowAlt } from "react-icons/bi/index.esm";
 import { useTheme } from "../layout";
 
 export const Actions = ({
@@ -62,46 +61,44 @@ export const Actions = ({
           let element = null;
           if (action.type === "button") {
             element = (
-              <Link key={index} href={action.link ? action.link : "/"}>
-                <button
-                  data-tinafield={`${parentField}.${index}`}
-                  className={`z-10 relative flex items-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out  rounded transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap ${
-                    parentColor === "primary"
-                      ? invertedButtonColorClasses[theme.color]
-                      : buttonColorClasses[theme.color]
-                  }`}
-                >
-                  {action.label}
-                  {action.icon && (
-                    <BiRightArrowAlt
-                      className={`ml-1 -mr-1 w-6 h-6 opacity-80`}
-                    />
-                  )}
-                </button>
+              <Link
+                key={index}
+                to={action.link ? action.link : "/"}
+                data-tinafield={`${parentField}.${index}`}
+                className={`z-10 relative flex items-center px-7 py-3 font-semibold text-lg transition duration-150 ease-out  rounded transform focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2 whitespace-nowrap ${
+                  parentColor === "primary"
+                    ? invertedButtonColorClasses[theme.color]
+                    : buttonColorClasses[theme.color]
+                }`}
+              >
+                {action.label}
+                {action.icon && (
+                  <BiRightArrowAlt
+                    className={`ml-1 -mr-1 w-6 h-6 opacity-80`}
+                  />
+                )}
               </Link>
             );
           }
           if (action.type === "link" || action.type === "linkExternal") {
             element = (
-              <Link key={index} href={action.link ? action.link : "/"} passHref>
-                <a
-                  data-tinafield={`${parentField}.${index}`}
-                  className={`group inline-flex items-center font-semibold text-lg transition duration-150 ease-out ${
-                    parentColor === "primary"
-                      ? `text-white  hover:text-gray-50`
-                      : linkButtonColorClasses[theme.color]
-                  }`}
-                  style={{
-                    textShadow: `0 3px 7px rgba(var(--color-rgb-blue-400),0.2)`,
-                  }}
-                >
-                  {action.label}
-                  {action.icon && (
-                    <BiRightArrowAlt
-                      className={`ml-0 mr-0 w-6 h-6 opacity-80`}
-                    />
-                  )}
-                </a>
+              <Link
+                key={index}
+                to={action.link ? action.link : "/"}
+                data-tinafield={`${parentField}.${index}`}
+                className={`group inline-flex items-center font-semibold text-lg transition duration-150 ease-out ${
+                  parentColor === "primary"
+                    ? `text-white  hover:text-gray-50`
+                    : linkButtonColorClasses[theme.color]
+                }`}
+                style={{
+                  textShadow: `0 3px 7px rgba(var(--color-rgb-blue-400),0.2)`,
+                }}
+              >
+                {action.label}
+                {action.icon && (
+                  <BiRightArrowAlt className={`ml-0 mr-0 w-6 h-6 opacity-80`} />
+                )}
               </Link>
             );
           }

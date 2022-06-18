@@ -1,9 +1,9 @@
 import { defineSchema, defineConfig } from "tinacms";
-import { contentBlockSchema } from "../components/blocks/content";
-import { featureBlockSchema } from "../components/blocks/features";
-import { heroBlockSchema } from "../components/blocks/hero";
-import { testimonialBlockSchema } from "../components/blocks/testimonial";
-import { iconSchema } from "../components/util/icon";
+import { contentBlockSchema } from "../src/components/blocks/content";
+import { featureBlockSchema } from "../src/components/blocks/features";
+import { heroBlockSchema } from "../src/components/blocks/hero";
+import { testimonialBlockSchema } from "../src/components/blocks/testimonial";
+import { iconSchema } from "../src/components/util/icon";
 
 const schema = defineSchema({
   collections: [
@@ -355,7 +355,7 @@ const branch = "main";
 const apiURL =
   process.env.NODE_ENV == "development"
     ? "http://localhost:4001/graphql"
-    : `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`;
+    : `https://content.tinajs.io/content/${process.env.TINA_CLIENT_ID}/github/${branch}`;
 
 export const tinaConfig = defineConfig({
   apiURL,
@@ -380,14 +380,14 @@ export const tinaConfig = defineConfig({
         }
         if (["page"].includes(collection.name)) {
           if (document._sys.filename === "home") {
-            return `/`;
+            return `#preview/`;
           }
           if (document._sys.filename === "about") {
-            return `/about`;
+            return `#preview/about`;
           }
           return undefined;
         }
-        return `/${collection.name}/${document._sys.filename}`;
+        return `#preview/${collection.name}/${document._sys.filename}`;
       });
       cms.plugins.add(RouteMapping);
     });

@@ -1,4 +1,3 @@
-import React from "react";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
 import type { TinaTemplate } from "tinacms";
