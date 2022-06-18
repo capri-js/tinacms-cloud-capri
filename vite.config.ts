@@ -9,6 +9,7 @@ import tailwindcssNesting from "tailwindcss/nesting/index.js";
 import { defineConfig } from "vite";
 
 export default defineConfig((env) => ({
+  publicDir: "src/public",
   define:
     env.command === "serve"
       ? {}
