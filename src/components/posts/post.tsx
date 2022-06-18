@@ -2,9 +2,9 @@ import React from "react";
 import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { useTheme } from "../layout";
-import format from "date-fns/format";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
-import type { TinaMarkdownContent, Components } from "tinacms/dist/rich-text";
+import { format } from "date-fns";
+import { TinaMarkdown } from "../../tina";
+import type { Components, TinaMarkdownContent } from "tinacms/dist/rich-text";
 
 const components: Components<{
   BlockQuote: {
