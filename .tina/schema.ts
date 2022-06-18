@@ -351,11 +351,14 @@ const schema = defineSchema({
   ],
 });
 
+const clientId =
+  process.env.TINA_CLIENT_ID ?? process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
+
 const branch = "main";
 const apiURL =
   process.env.NODE_ENV == "development"
     ? "http://localhost:4001/graphql"
-    : `https://content.tinajs.io/content/${process.env.TINA_CLIENT_ID}/github/${branch}`;
+    : `https://content.tinajs.io/content/${clientId}/github/${branch}`;
 
 export const tinaConfig = defineConfig({
   apiURL,

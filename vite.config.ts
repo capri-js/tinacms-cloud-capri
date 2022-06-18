@@ -37,6 +37,12 @@ export default defineConfig((env) => ({
     // schema.js is required() from @tinacms/cli so we can't use
     // import.meta.env there. Hence we have to use the EnvironmentPlugin
     // instead:
-    EnvironmentPlugin("all", { prefix: "TINA_" }),
+    EnvironmentPlugin([
+      "TINA_CLOUDINARY_CLOUD_NAME",
+      "TINA_CLOUDINARY_API_KEY",
+      "TINA_HIDE_EDIT_BUTTON",
+      "TINA_CLIENT_ID",
+      "NEXT_PUBLIC_TINA_CLIENT_ID",
+    ]),
   ],
 }));
