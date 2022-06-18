@@ -24,9 +24,10 @@
   "footer": {
     "color": "default",
     "social": {
-      "facebook": "/",
-      "twitter": "/",
-      "instagram": "/"
+      "facebook": "",
+      "twitter": "https://twitter.com/fgnass",
+      "instagram": "",
+      "github": "https://github.com/capri-js"
     }
   },
   "theme": {

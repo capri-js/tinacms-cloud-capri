@@ -9,11 +9,11 @@ import tailwindcssNesting from "tailwindcss/nesting/index.js";
 import { defineConfig } from "vite";
 
 export default defineConfig((env) => ({
-  publicDir: "src/public",
   define:
     env.command === "serve"
       ? {}
       : {
+          "process.platform": "'browser'",
           "tinacms/dist/client": "tinacms/dist/client.js",
         },
   //@ts-ignore the ssr config is experimental and therefore not included UserConfig
@@ -38,12 +38,6 @@ export default defineConfig((env) => ({
     // schema.js is required() from @tinacms/cli so we can't use
     // import.meta.env there. Hence we have to use the EnvironmentPlugin
     // instead:
-    EnvironmentPlugin({
-      TINA_HIDE_EDIT_BUTTON: "0",
-      TINA_CLOUDINARY_CLOUD_NAME: null,
-      TINA_CLOUDINARY_API_KEY: null,
-      TINA_CLIENT_ID: null,
-      NEXT_PUBLIC_TINA_CLIENT_ID: null,
-    }),
+    EnvironmentPlugin("all", { prefix: "NEXT_PUBLIC_" }),
   ],
 }));

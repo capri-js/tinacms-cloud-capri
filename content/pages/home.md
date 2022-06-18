@@ -1,12 +1,10 @@
 ---
 blocks:
-  - headline: Welcome to the Tina Starter
+  - headline: Tina meets Capri
     text: >
-      This project is set up to show you the basics of working with Tina. You're
-      looking at the landing page, which pulls content from
-      content/pages/home.md, components from components/blocks, and puts them
-      all together in pages/\[filename].tsx, all based on a schema defined in
-      .tina/schema.ts.
+      It is a port of the [Tina Cloud
+      Starter](https://github.com/tinacms/tina-cloud-starter) template to show
+      how [Capri](https://capri.build) can be used together with TinaCMS.
     actions:
       - label: Get Started
         type: button
@@ -26,25 +24,22 @@ blocks:
       - icon:
           color: red
           style: float
-          name: code
-        title: Amazing Feature
-        text: >-
-          Aliquam blandit felis rhoncus, eleifend ipsum in, condimentum nibh.
-          Praesent ac faucibus risus, eu lacinia enim.
+          name: trophy
+        title: Zero JavaScript
+        text: The site ships zero KB of JavaScript to the browser.
       - icon:
           color: primary
           style: float
-          name: like
-        title: This Is a Feature
-        text: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
+          name: pin
+        title: Static HTML
+        text: Capri sites are 100% static HTML so you don't need a Node.js server.
       - icon:
           color: green
           style: float
-          name: palette
-        title: Configurable Theme
-        text: >-
-          Edit global theme configuration with Tina. Change your theme's primary
-          color, font, or icon set.
+          name: user
+        title: Live editing
+        text: Still you get Tina's unique live editing experience as SPA.
     color: tint
     _template: features
 ---
+
