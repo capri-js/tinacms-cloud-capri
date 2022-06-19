@@ -37,7 +37,7 @@
     "react-icons": "^4.2.0",
     "react-router-dom": "^6.3.0",
     "swr": "^1.3.0",
-    "tinacms": "^0.68.8",
+    "tinacms": "^0.68.9",
     "vite-plugin-environment": "^1.1.1"
   }
 }
