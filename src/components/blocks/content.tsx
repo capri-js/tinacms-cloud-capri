@@ -1,7 +1,7 @@
 import { Container } from "../util/container";
 import { Section } from "../util/section";
-import { TinaMarkdown } from "../../tina";
 import type { TinaTemplate } from "tinacms";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 export const Content = ({ data, parentField = "" }) => {
   return (

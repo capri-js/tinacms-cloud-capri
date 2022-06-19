@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { TinaMarkdown } from "../../tina";
 import { BsArrowRight } from "react-icons/bs/index.esm";
 import { useTheme } from "../layout";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
 
 export const Posts = ({ data }) => {
   const theme = useTheme();

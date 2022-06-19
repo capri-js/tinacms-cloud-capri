@@ -3,8 +3,11 @@ import { Container } from "../util/container";
 import { Section } from "../util/section";
 import { useTheme } from "../layout";
 import { format } from "date-fns";
-import { TinaMarkdown } from "../../tina";
-import type { Components, TinaMarkdownContent } from "tinacms/dist/rich-text";
+import {
+  Components,
+  TinaMarkdown,
+  TinaMarkdownContent,
+} from "tinacms/dist/rich-text";
 
 const components: Components<{
   BlockQuote: {

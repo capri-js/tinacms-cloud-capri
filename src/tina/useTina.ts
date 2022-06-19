@@ -1,6 +1,6 @@
 import useSWR from "swr";
-
-import { staticRequest, useTinaEdit } from ".";
+import { staticRequest } from "tinacms";
+import { useTina as useEditTina } from "tinacms/dist/edit-state";
 
 type Args = {
   query: string;
@@ -29,7 +29,7 @@ async function fetcher<T>({ query, variables = {} }: Args) {
  * the regular useTina hook.
  */
 export function useTina<T extends object>({ query, variables = {} }: Args) {
-  if (import.meta.env.SSR) {
+  if (process.env.SSR) {
     // In case you wonder why we conditionally call a hook here:
     // This is fine, since import.meta.env.SSR is evaluated during build-time
     // and will never change.
@@ -45,6 +45,6 @@ export function useTina<T extends object>({ query, variables = {} }: Args) {
       isLoading: isValidating,
     };
   } else {
-    return useTinaEdit<T>({ query, variables, data: {} as any });
+    return useEditTina<T>({ query, variables, data: {} as any });
   }
 }

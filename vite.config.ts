@@ -1,43 +1,27 @@
-import capri from "@capri-js/react/vite-plugin";
 import react from "@vitejs/plugin-react";
 import EnvironmentPlugin from "vite-plugin-environment";
-import { esbuildCommonjs } from "@originjs/vite-plugin-commonjs";
-import autoprefixer from "autoprefixer";
-import postcssImport from "postcss-import";
-import tailwindcss from "tailwindcss";
-import tailwindcssNesting from "tailwindcss/nesting/index.js";
 import { defineConfig } from "vite";
 
-export default defineConfig((env) => ({
-  define:
-    env.command === "serve"
-      ? {}
-      : {
-          "process.platform": "'browser'",
-          "tinacms/dist/client": "tinacms/dist/client.js",
-        },
-  //@ts-ignore the ssr config is experimental and therefore not included UserConfig
-  ssr: {
-    external: ["node-fetch"],
-  },
-  optimizeDeps: {
-    esbuildOptions: {
-      plugins: [esbuildCommonjs(["react-datetime"])],
+export default defineConfig(async () => {
+  const capri = await import("@capri-js/react/vite-plugin");
+  return {
+    resolve: {
+      alias: [{ find: "moment", replacement: "moment/moment.js" }],
     },
-  },
-  css: {
-    postcss: {
-      plugins: [postcssImport, tailwindcssNesting, tailwindcss, autoprefixer],
+    define: {
+      "process.platform": "'browser'",
     },
-  },
-  plugins: [
-    react(),
-    capri({
-      spa: "/admin",
-    }),
-    // schema.js is required() from @tinacms/cli so we can't use
-    // import.meta.env there. Hence we have to use the EnvironmentPlugin
-    // instead:
-    EnvironmentPlugin("all", { prefix: "NEXT_PUBLIC_" }),
-  ],
-}));
+    //@ts-ignore the ssr config is experimental
+    ssr: {
+      external: ["node-fetch"],
+    },
+    plugins: [
+      react(),
+      capri.default({
+        ssrFormat: "commonjs",
+        spa: "/admin",
+      }),
+      EnvironmentPlugin("all", { prefix: "NEXT_PUBLIC_" }),
+    ],
+  };
+});

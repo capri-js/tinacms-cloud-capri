@@ -2,7 +2,6 @@
   "name": "@capri-js/tina-cloud",
   "version": "0.1.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "dev": "tinacms server:start -c vite",
     "build": "tinacms server:start -c \"vite build && vite build --ssr\"",
@@ -25,7 +24,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "@capri-js/react": "^3.1.1",
+    "@capri-js/react": "^3.1.2",
     "@headlessui/react": "^1.6.4",
     "@tailwindcss/typography": "^0.4.1",
     "@tinacms/auth": "^0.50.2",
