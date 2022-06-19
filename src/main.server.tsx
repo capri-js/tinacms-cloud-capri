@@ -20,7 +20,7 @@ export const render: RenderFunction = async (url: string) => {
     </HelmetProvider>
   );
   const { helmet } = helmetContext;
-  const head = [helmet.title, helmet.meta, helmet.link].join();
+  const head = [helmet.title, helmet.meta, helmet.link].join("");
   return {
     head,
     "#root": html,
