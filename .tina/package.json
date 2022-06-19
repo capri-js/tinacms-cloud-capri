@@ -1,6 +1,0 @@
-{
-  "name": "tina",
-  "private": true,
-  "description": "Workaround to let @tinacms/cli/dist/index.js require() the generated schema file",
-  "type": "commonjs"
-}

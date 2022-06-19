@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BsArrowRight } from "react-icons/bs/index.esm";
+import { BsArrowRight } from "react-icons/bs";
 import { useTheme } from "../layout";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 

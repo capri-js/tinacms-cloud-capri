@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BiRightArrowAlt } from "react-icons/bi/index.esm";
+import { BiRightArrowAlt } from "react-icons/bi";
 import { useTheme } from "../layout";
 
 export const Actions = ({

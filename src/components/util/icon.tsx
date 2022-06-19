@@ -17,8 +17,8 @@ import {
   BiCloud,
   BiCoffeeTogo,
   BiWorld,
-} from "react-icons/bi/index.esm";
-import { ImTrophy } from "react-icons/im/index.esm";
+} from "react-icons/bi";
+import { ImTrophy } from "react-icons/im";
 import {
   HiAdjustments,
   HiBeaker,
@@ -33,10 +33,10 @@ import {
   HiTerminal,
   HiThumbUp,
   HiUser,
-} from "react-icons/hi/index.esm";
-import { FiAperture } from "react-icons/fi/index.esm";
+} from "react-icons/hi";
+import { FiAperture } from "react-icons/fi";
 import { useTheme } from "../layout";
-import { FaBeer, FaCoffee } from "react-icons/fa/index.esm";
+import { FaBeer, FaCoffee } from "react-icons/fa";
 import { TinaIconSvg } from "./TinaIconSvg";
 import type { TinaField } from "tinacms";
 

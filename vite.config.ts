@@ -11,10 +11,6 @@ export default defineConfig(async () => {
     define: {
       "process.platform": "'browser'",
     },
-    //@ts-ignore the ssr config is experimental
-    ssr: {
-      external: ["node-fetch"],
-    },
     plugins: [
       react(),
       capri.default({

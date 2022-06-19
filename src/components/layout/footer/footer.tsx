@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { FaFacebookF, FaGithub, FaTwitter } from "react-icons/fa/index.esm";
-import { AiFillInstagram } from "react-icons/ai/index.esm";
+import { FaFacebookF, FaGithub, FaTwitter } from "react-icons/fa";
+import { AiFillInstagram } from "react-icons/ai";
 import { Container } from "../../util/container";
 import { RawRenderer } from "./rawRenderer";
 import { useTheme } from "..";
