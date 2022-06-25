@@ -3,7 +3,7 @@ import EnvironmentPlugin from "vite-plugin-environment";
 import { defineConfig } from "vite";
 
 export default defineConfig(async () => {
-  const capri = await import("@capri-js/react/vite-plugin");
+  const capri = await import("@capri-js/react");
   return {
     resolve: {
       alias: [{ find: "moment", replacement: "moment/moment.js" }],
