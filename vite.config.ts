@@ -1,23 +1,31 @@
 import react from "@vitejs/plugin-react";
 import EnvironmentPlugin from "vite-plugin-environment";
+
 import { defineConfig } from "vite";
 
 export default defineConfig(async () => {
-  const capri = await import("@capri-js/react");
+  const { default: capri } = await import("@capri-js/react");
   return {
-    resolve: {
-      alias: [{ find: "moment", replacement: "moment/moment.js" }],
+    build: {
+      commonjsOptions: {
+        requireReturnsDefault: "auto",
+      },
     },
     define: {
       "process.platform": "'browser'",
     },
+    legacy: {
+      buildSsrCjsExternalHeuristics: true,
+    },
+    ssr: {
+      format: "cjs",
+    },
     plugins: [
+      EnvironmentPlugin("all", { prefix: "NEXT_PUBLIC_" }),
       react(),
-      capri.default({
-        ssrFormat: "commonjs",
+      capri({
         spa: "/admin",
       }),
-      EnvironmentPlugin("all", { prefix: "NEXT_PUBLIC_" }),
     ],
   };
 });

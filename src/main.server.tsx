@@ -1,4 +1,3 @@
-import "./tina/fetchPolyfill";
 import { RenderFunction, renderToString } from "@capri-js/react/server";
 import { StaticRouter } from "react-router-dom/server.js";
 import { FilledContext, HelmetProvider } from "react-helmet-async";
