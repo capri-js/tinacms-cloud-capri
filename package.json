@@ -30,7 +30,7 @@
     "@capri-js/react": "^5.0.0",
     "@headlessui/react": "^1.6.5",
     "@tailwindcss/typography": "^0.5.2",
-    "@tinacms/auth": "^0.50.2",
+    "@tinacms/auth": "^0.50.5",
     "date-fns": "^2.28.0",
     "next-tinacms-cloudinary": "^3.5.27",
     "react": "^18.2.0",
